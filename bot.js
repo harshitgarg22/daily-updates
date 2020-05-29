@@ -16,7 +16,7 @@ client.on("message", (message) => {
     args = message.content.substring(1).split(" ");
     command = args[0];
     args.splice(1);
-
+    command = command.toLowerCase();
     switch (command) {
       case "ping":
         message.channel.send("pong");
@@ -40,6 +40,8 @@ client.on("message", (message) => {
         
         message.channel.send("\u20B9" + elapsedCost.toFixed(2) + " down the drain.");
         break;
+        case "help":
+          message.channel.send("God helps those who help themselves.");
     }
   }
 });
