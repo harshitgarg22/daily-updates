@@ -38,7 +38,7 @@ client.on("message", (message) => {
         let elapsed = timeMessage - ps.startTimestamp;
         let elapsedCost = (ps.cost * elapsed) / duration;
         
-        message.channel.send("You have wisely spent your \u20B9" + elapsedCost.toFixed(2) + " by now.");
+        message.channel.send("\u20B9" + elapsedCost.toFixed(2) + " down the drain.");
         break;
     }
   }
