@@ -6,7 +6,7 @@ const data = require("./data.json");
 const ps = data.ps;
 
 client.login(auth.token).then(() => {
-    let guild = auth.teeten.guildid;
+    let guild = client.guilds.get(auth.teeten.guildid);
     let channel = guild.channels.get(auth.teeten.channelid["comp-sci"]);
     if(guild && channel){
         channel.send("Gentle reminder folks.");
