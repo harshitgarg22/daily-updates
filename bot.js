@@ -1,8 +1,10 @@
 const Discord = require("discord.js");
 const auth = require("./auth.json");
-const data = require("./data.json");
 const client = new Discord.Client();
-let moment = require("moment");
+
+const data = require("./data.json");
+let quotes = require("./quotes.json");
+quotes = quotes.quotes;
 
 const commandPrefix = "!";
 const ps = data.ps;
@@ -17,6 +19,7 @@ client.on("message", (message) => {
     command = args[0];
     args.splice(1);
     command = command.toLowerCase();
+
     switch (command) {
       case "ping":
         message.channel.send("pong");
@@ -27,9 +30,7 @@ client.on("message", (message) => {
         );
         break;
       case "time":
-        message.channel.send(
-          `Current time is: ${message.createdAt}`
-        );
+        message.channel.send(`Current time is: ${message.createdAt}`);
         break;
       case "ps":
         let timeMessage = message.createdTimestamp;
@@ -37,11 +38,25 @@ client.on("message", (message) => {
 
         let elapsed = timeMessage - ps.startTimestamp;
         let elapsedCost = (ps.cost * elapsed) / duration;
-        
-        message.channel.send("\u20B9" + elapsedCost.toFixed(2) + " down the drain.");
+
+        message.channel.send(
+          "\u20B9" + elapsedCost.toFixed(2) + " down the drain."
+        );
         break;
-        case "help":
-          message.channel.send("God helps those who help themselves.");
+      case "killme":
+        let num = Math.floor(Math.random() * quotes.length);
+        let quote = quotes[num].quote;
+        let author = quotes[num].author;
+
+        const quoteEmbed = new Discord.MessageEmbed()
+          .setColor("#0099ff")
+          .setTitle(quote)
+          .setDescription(author);
+
+        message.channel.send(quoteEmbed);
+        break;
+      case "help":
+        message.channel.send("God helps those who help themselves.");
     }
   }
 });
