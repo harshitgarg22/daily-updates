@@ -21,6 +21,8 @@ client.login(auth.token).then(() => {
         )
         .then(() => client.destroy());
     }
+    else{
+        console.log("Could not connect to channel");
+    }
+    client.destroy();
 });
-
-client.destroy();
