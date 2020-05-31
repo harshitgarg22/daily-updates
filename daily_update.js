@@ -7,7 +7,7 @@ const ps = data.ps;
 
 client.login(auth.token).then(() => {
     let guild = client.guilds.get(auth.teeten.guildid);
-    let channel = guild.channels.get(auth.teeten.channelid["comp-sci"]);
+    let channel = guild.channels.get(auth.teeten.channelid["60k-or-50k"]);
     if(guild && channel){
         channel.send("Gentle reminder folks.");
         let timeMessage = getTime();
