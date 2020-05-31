@@ -56,7 +56,23 @@ client.on("message", (message) => {
         message.channel.send(quoteEmbed);
         break;
       case "help":
-        message.channel.send("God helps those who help themselves.");
+        const helpEmbed = new Discord.MessageEmbed()
+          .setColor("#0099ff")
+          .setTitle("Help!")
+          .addFields(
+            { name: "!intro", value: "Bot gives you a nice introduction." },
+            {
+              name: "!ps",
+              value: "Bot reminds you of the current PS expenditure.",
+            },
+            { name: "!killme", value: "Bot is there for you." },
+            { name: "!ping", value: "Bot pongs." },
+            { name: "!help", value: "Bot help for you." }
+          )
+          .setFooter("God helps those who help themselves.")
+          .setTimestamp()
+
+        message.channel.send(helpEmbed);
     }
   }
 });
