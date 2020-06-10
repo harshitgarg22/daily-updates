@@ -1,3 +1,4 @@
 node_modules/
 running.log
 config.json
+.vscode
