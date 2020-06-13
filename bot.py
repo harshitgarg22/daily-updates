@@ -4,7 +4,7 @@ import json
 import os
 import requests
 from bs4 import BeautifulSoup as BSHTML
-
+from discord.ext.commands import CommandNotFound
 
 with open(os.path.join("config.json")) as f:
     config = json.load(f)
@@ -16,6 +16,11 @@ bot = commands.Bot(command_prefix="!", description="daily_updates bot")
 async def on_ready():
     print("Logged in as {0}".format(bot.user))
 
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, CommandNotFound):
+        return
+    raise error
 @bot.command()
 async def corona(ctx, state="delhi"):
     url = "https://www.mohfw.gov.in/"
