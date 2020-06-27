@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const auth = require("./auth.json");
+const config = require("./config.json");
 const client = new Discord.Client();
 
 const data = require("./data.json");
@@ -70,11 +70,11 @@ client.on("message", (message) => {
             { name: "!help", value: "Bot help for you." }
           )
           .setFooter("God helps those who help themselves.")
-          .setTimestamp()
+          .setTimestamp();
 
         message.channel.send(helpEmbed);
     }
   }
 });
 
-client.login(auth.token);
+client.login(config.token);
