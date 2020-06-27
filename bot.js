@@ -39,9 +39,18 @@ client.on("message", (message) => {
         let elapsed = timeMessage - ps.startTimestamp;
         let elapsedCost = (ps.cost * elapsed) / duration;
 
-        message.channel.send(
-          "\u20B9" + elapsedCost.toFixed(2) + " down the drain."
-        );
+        if (
+          message.author.username == "DiscordHG" &&
+          message.author.discriminator == "6847"
+        ) {
+          message.channel.send(
+            "\u20B960k dumped. Hopes and dreams failed successfully."
+          );
+        } else {
+          message.channel.send(
+            "\u20B9" + elapsedCost.toFixed(2) + " down the drain."
+          );
+        }
         break;
       case "killme":
         let num = Math.floor(Math.random() * quotes.length);
