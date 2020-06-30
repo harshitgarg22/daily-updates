@@ -39,10 +39,7 @@ client.on("message", (message) => {
         let elapsed = timeMessage - ps.startTimestamp;
         let elapsedCost = (ps.cost * elapsed) / duration;
 
-        if (
-          message.author.username == "DiscordHG" &&
-          message.author.discriminator == "6847"
-        ) {
+        if (elapsedCost > 60000) {
           message.channel.send(
             "\u20B960k dumped. Hopes and dreams failed successfully."
           );
