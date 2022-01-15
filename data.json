@@ -3,5 +3,10 @@
         "startTimestamp": 1589760000000,
         "cost": 60000,
         "endTimestamp": 1593302400000
+    },
+    "ps2": {
+        "startTimestamp": 1589760000000,
+        "cost": 64700,
+        "endTimestamp": 1593302400000
     }
 }
